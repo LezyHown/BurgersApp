@@ -1,0 +1,27 @@
+.cart-modal{
+    .cart-item{  
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+
+        .remove-cart-item{
+            display: flex;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            margin-left: 0;
+            opacity: 0.80;
+
+            &:active{
+                transform: translateY(6px);
+            }
+            &:hover{
+                svg{
+                    width: 32px;
+                    height: 32px;
+                    color:  rgba(255, 34, 34, 0.871);
+                }
+                opacity: 1;
+            }
+        }
+    }
+}

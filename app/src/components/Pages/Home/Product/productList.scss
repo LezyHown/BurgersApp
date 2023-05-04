@@ -1,0 +1,48 @@
+.product-list {
+  .pagination-controls {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+
+    .left-control,
+    .right-control {
+      display: inline-flex;
+      justify-content: center;
+      align-content: center;
+      margin-right: 14px;
+      transform: translateY(-10px);
+      transition: all 0.15s ease-in-out;
+      
+      &.active {
+        svg.circle {
+          fill: #ec6083;
+          filter: drop-shadow(0px 0px 10px #ec6083);
+          cursor: pointer;
+          transition: all 0.15s ease-in-out;
+        }
+        &:active{
+          filter: brightness(0.85);
+        }
+      }
+
+      svg.arrow {
+        cursor: pointer;
+        position: absolute;
+        transform: translateY(50%);
+      }
+    }
+  }
+
+  .products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 65px;
+    column-gap: 75px;
+    margin-top: 87px;
+
+    @media screen and (max-width: 450px) {
+      padding: 0;
+    }
+  }
+}
