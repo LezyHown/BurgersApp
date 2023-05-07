@@ -5,7 +5,7 @@ import "./cart.scss";
 import AnimatedCartIcon from "./AnimatedCartIcon";
 import { useSelector } from "react-redux";
 import Product from "./Product";
-import { CounterAnimations, ShowAnimations } from "../Tools/SpringAnimations";
+import { CounterAnimations, showAnimations } from "../Tools/framerAnimations";
 import CloseBtn from "../Tools/UIElements/CloseBtn";
 
 /**
@@ -17,8 +17,8 @@ export default function CartModal({ show, close }) {
   const cart = useSelector((state) => state.cart);
   const currency = process.env.REACT_APP_CURRENCY;
   const isProductsExist = cart.products?.length > 0;
-  const showAnimation = ShowAnimations.slideInFromTop(show);
-  const expectationPicture = "https://24.media.tumblr.com/tumblr_mcm1ec68fN1qfqgb9o1_1280.gif";
+  const showAnimation = showAnimations.slideInFromTop(show);
+  const cartWaitPicture = process.env.REACT_APP_CART_WAIT_PICTURE;
   
   return (
     <motion.div className="modal-window burger-gradient px-4" {...showAnimation}>
@@ -38,18 +38,16 @@ export default function CartModal({ show, close }) {
           </div>
         ) : (
           <div className="flex flex-col items-center text-xl mb-8">
-            <img className="w-40 h-40 object-cover" src={expectationPicture}/>
-            Waiting for your new purchase! :)
+            <img className="w-40 h-40 object-cover" src={cartWaitPicture}/>
+            Waiting for your new purchase :)
           </div>
         )}
+
         <AnimatePresence>
           <div className="flex items-center justify-center gap-3">
             <div className="total-price font-semibold gap-2">
               <span className="text-[21px] capitalize opacity-90 text-gray-900">total price:</span>
-              <motion.span
-                className="money-text text-[23px]"
-                {...CounterAnimations.blinkCounter(cart.totalCost)}
-              >
+              <motion.span className="money-text text-[23px]" {...CounterAnimations.blinkCounter(cart.totalCost)}>
                 {currency + cart.totalCost}
               </motion.span>
             </div>

@@ -1,6 +1,6 @@
-import IconsAPI from "../../../content/icons/iconsAPI";
+import IconsAPI from "../content/icons/iconsAPI";
 
-export default [
+const footerBlocks = [
   {
     title: "About",
     links: [
@@ -35,8 +35,10 @@ export default [
       { name: "We’d love to hear from you", link: "/contact-form" },
       <div className="mail-input">
         <input placeholder="Email Address" type="email" />
-        <IconsAPI category={"HOME"} name={"mail"} />
+        <IconsAPI category={"FOOTER"} name={"mail"} />
       </div>
     ],
   },
 ];
+
+export default footerBlocks;

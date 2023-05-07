@@ -1,19 +1,20 @@
-import Sticky from 'react-sticky-el';
 import "./App.scss";
 
 //-----------------
 // Иконки
 // ----------------
+import Sticky from 'react-sticky-el';
+import IconsAPI from "./components/content/icons/iconsAPI";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { Spin as BurgerSpin } from "react-burgers";
-import IconsAPI from "./components/content/icons/iconsAPI";
 // ----------------
 // Контент
 // -----------------
 import { PAGES } from "./components/Header/Navigation/navigationAPI";
-import FooterBlock from "./components/Pages/Home/Footer/FooterBlock";
-import footerAPI from "./components/Pages/Home/Footer/footerAPI";
+import NavMenu from "./components/Header/Navigation/NavMenu";
+import FooterBlock from "./components/Footer/FooterBlock";
+import footerAPI from "./components/Footer/footerAPI";
 import Page from "./components/Header/Navigation/Routing";
 // ----------------
 // Модальные окна
@@ -23,19 +24,17 @@ import CartModal from "./components/Header/Modals/Cart/CartModal";
 import BurgerModal from "./components/Header/Modals/HeaderBurger/HeaderBurger";
 import CartNotifyModal from './components/Header/Modals/Dialog/CartNotifyModal';
 import ScrollLock from "./components/Header/Tools/ScrollLock";
-import NavMenu from "./components/Header/Navigation/NavMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal, hideAllModals, showModal, toggleShowModal } from './components/Redux/Modals/modalsSlice';
 
 function App() {
+  const navigationMenu = <NavMenu pages={PAGES} onClick={() => dispatch(hideAllModals())} />;
   const [cart, modals] = useSelector((state) => [state.cart, state.modals]);
   const dispatch = useDispatch();
 
-  const navigationMenu = <NavMenu pages={PAGES} onClick={() => dispatch(hideAllModals())} />;
-
   return (
     <div className="App">
-      <ScrollLock isActive={ modals.burger.isShow | modals.user.isShow | modals.cart.isShow} />
+      <ScrollLock isActive={ modals.burger.isShow || modals.user.isShow || modals.cart.isShow } />
       <UserModal show={modals.user.isShow} close={() => dispatch(closeModal('user'))} />
       <CartModal show={modals.cart.isShow} close={() => dispatch(closeModal('cart'))} />
       <CartNotifyModal show={modals.cartNotify.isShow} close={() => dispatch(closeModal('cartNotify'))}/>
@@ -43,13 +42,14 @@ function App() {
       
       <header>
         <div className="_container">
-          <IconsAPI category="HOME" name="mainLogo" className="main-logo" />
-          {/* // ----------------НАВИГАЦИЯ------------------- */}
+          {/* -----------ЛОГОТИП----------- */}
+          <IconsAPI category="HEADER" name="mainLogo" className="main-logo" />
+          {/* -----------НАВИГАЦИЯ----------- */}
           {navigationMenu}
-          {/* // ----------------ПОЛЬЗОВАТЕЛЬ---------------------- */}
+          {/* -----------ПОЛЬЗОВАТЕЛЬСКИЕ ИКОНКИ----------- */}
           <div className="user-items">
             <button className="user-item search" onClick={() => null}>
-              <IconsAPI category="HOME" name="search" />
+              <IconsAPI category="HEADER" name="search" />
             </button>
 
             <Sticky stickyClassName="sticky-cart">
@@ -59,12 +59,12 @@ function App() {
                     <span className="animate-pulse">{cart.products.length}</span>
                   </div>
                 )}
-                <IconsAPI category="HOME" name="cart" />
+                <IconsAPI category="HEADER" name="cart" />
               </button>
             </Sticky>
 
             <button className="user-item user" onClick={() => dispatch(showModal('user'))}>
-              <IconsAPI category="HOME" name="user" />
+              <IconsAPI category="HEADER" name="user" />
             </button>
 
             <div className="burger" onClick={() => dispatch(toggleShowModal('burger'))}>
@@ -79,7 +79,7 @@ function App() {
 
       <footer>
         <div className="footer-section">
-          <IconsAPI category="HOME" name="mainLogo" className="main-logo -z-10" />
+          <IconsAPI category="HEADER" name="mainLogo" className="main-logo -z-10" />
           <p className="description">
             We cook and deliver the tastiest food right away to your designated location
           </p>
@@ -96,8 +96,8 @@ function App() {
           </div>
         </div>
         <div className="footer-blocklist">
-          {footerAPI.map((footerBlock) => (
-            <FooterBlock title={footerBlock.title} links={footerBlock.links} />
+          {footerAPI.map((footerBlock, index) => (
+            <FooterBlock key={index} title={footerBlock.title} links={footerBlock.links} />
           ))}
         </div>
       </footer>

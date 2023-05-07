@@ -1,4 +1,4 @@
-export const ShowAnimations = {
+export const showAnimations = {
   slideInFromTop(show) {
     return {
       initial: { height: "0", visibility: "hidden" },
@@ -6,6 +6,23 @@ export const ShowAnimations = {
         height: show ? "100%" : "0",
         visibility: show ? "visible" : "hidden",
         transition: { duration: 0.7, type: "spring", damping: 19, stiffness: 170 },
+      },
+    };
+  },
+  productScrollSlide() {
+    return {
+      initial: {
+        opacity: 0.9,
+        scale: 0.9,
+        rotateX: 5,
+      },
+      whileInView: {
+        opacity: 1,
+        scale: 1,
+        rotateX: 0,
+        transition: {
+          duration: 0.35,
+        },
       },
     };
   },

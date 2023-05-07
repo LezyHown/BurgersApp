@@ -33,17 +33,13 @@ const ProductList = ({ products, productsPerPage }) => {
     <div className="product-list mb-[273px]">
       {/*-------Пагинация, стрелки-------------*/}
       <div className="pagination-controls">
-        <div
-          className={`left-control ${currentPage > 0 && "active"}`}
-          onClick={() => currentPage > 0 && setCurrentPage((page) => page - 1)}
-        >
+        <div className={`left-control ${currentPage > 0 && "active"}`}
+          onClick={() => currentPage > 0 && setCurrentPage((page) => page - 1)}>
           <VscCircleLargeFilled color="#CFCFCF" size={55} className="circle" />
           <BsChevronLeft size={25} className="arrow" />
         </div>
-        <div
-          className={`right-control ${currentPage < pageCount && "active"}`}
-          onClick={() => currentPage < pageCount && setCurrentPage((page) => page + 1)}
-        >
+        <div className={`right-control ${currentPage < pageCount && "active"}`}
+          onClick={() => currentPage < pageCount && setCurrentPage((page) => page + 1)}>
           <VscCircleLargeFilled color="#CFCFCF" size={55} className="circle" />
           <BsChevronRight size={25} className="arrow" />
         </div>

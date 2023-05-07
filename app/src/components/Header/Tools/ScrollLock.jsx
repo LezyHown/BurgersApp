@@ -1,5 +1,9 @@
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 
+/**
+ * Блокировка скролла компоненты в которую он помещается
+ * @param {Boolean} isActive Активность блокировки скролла 
+ */
 export default function ScrollLock({ isActive }) {
   useLayoutEffect(() => {
     const handleScroll = (event) => {

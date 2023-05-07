@@ -9,7 +9,7 @@ import GoogleSignIn from "./GoogleSignIn";
 import { signIn } from "../../../Redux/User/userSlice";
 import UserUI from "./UserUI";
 import CloseBtn from "../Tools/UIElements/CloseBtn";
-import { ShowAnimations } from "../Tools/SpringAnimations";
+import { showAnimations } from "../Tools/framerAnimations";
 
 /**
  * Модальное окно пользователя
@@ -19,7 +19,7 @@ import { ShowAnimations } from "../Tools/SpringAnimations";
 export default function UserModal({ show, close }) {
   const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  const showAnimation = ShowAnimations.slideInFromTop(show);
+  const showAnimation = showAnimations.slideInFromTop(show);
 
   return (
     <motion.div className="modal-window burger-gradient" {...showAnimation}>

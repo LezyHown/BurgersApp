@@ -12,12 +12,13 @@ import './product.scss';
  * @param {String} price Цена $
  * @returns {JSX} JSX Компонент с классом product
  */
-export default function Product({ id, image, price, description }) {
+export default function Product({ id, image, price, description, isInViewList }) {
   const dispatch = useDispatch();
   const [imageLoaded, setImageLoaded] = useState(false);
 
+
   return (
-    <div className='product'>
+    <motion.div className="product">
       <motion.img src={image} 
         initial={{ opacity: 0, y: -35 }}
         animate={{ opacity: imageLoaded ? 1 : 0, y: 0 }}
@@ -36,6 +37,6 @@ export default function Product({ id, image, price, description }) {
             </div>
           </div>
         </div>
-    </div>
+    </motion.div>
   )
 }

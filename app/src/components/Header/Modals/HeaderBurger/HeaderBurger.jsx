@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { showAnimations } from "../Tools/framerAnimations";
 import './navmenu.scss';
-import { ShowAnimations } from "../Tools/SpringAnimations";
 
 /**
  * Модальное окно бургера для хедера
@@ -9,7 +9,7 @@ import { ShowAnimations } from "../Tools/SpringAnimations";
  * @param {Action} handle - функция переключения показа (Action)
  */
 export default function BurgerModal({ navigationMenu, show }) {
-  const showAnimation = ShowAnimations.slideInFromTop(show);
+  const showAnimation = showAnimations.slideInFromTop(show);
 
   return (
     <motion.div className="header-burger-modal" {...showAnimation}>

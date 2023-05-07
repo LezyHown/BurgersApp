@@ -17,17 +17,10 @@ import mapContactLocation from './pages/Contact/map-location.png';
 
 function IconsAPI({ category, name, ...rest }) {
   const icons = {
-    HOME: {
-      //Header
-      mainLogo, cart, search, user, burger, spot,
-      //Main
-      delivery, orders, shopping,
-      //Footer
-      mail
-    },
-    CONTACT: {
-      phone, timer, mapContactLocation
-    }
+    HEADER: { mainLogo, cart, search, user },
+    FOOTER: { mail },
+    HOME: { delivery, orders, shopping, burger, spot },
+    CONTACT: { phone, timer, mapContactLocation }
   };
 
   return <motion.img alt='icon' src={icons[category]?.[name]} style={{ imageRendering: 'optimizeQuality', userSelect: 'none' }} draggable={false} {...rest}/>;

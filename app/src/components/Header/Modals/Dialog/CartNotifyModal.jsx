@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ShowAnimations } from "../Tools/SpringAnimations";
+import { showAnimations } from "../Tools/framerAnimations";
 import { useDispatch } from "react-redux";
 import { showModal } from "../../../Redux/Modals/modalsSlice";
 
@@ -10,7 +10,7 @@ import { showModal } from "../../../Redux/Modals/modalsSlice";
  * @param {Action} handle - функция переключения показа (Action)
  */
 export default function CartNotifyModal({ show, close }) {
-  const showAnimation = ShowAnimations.slideInFromTop(show);
+  const showAnimation = showAnimations.slideInFromTop(show);
   const dispatch = useDispatch();
 
   return (
