@@ -26,7 +26,7 @@ const footerBlocks = [
       { name: "Account", link: "/account" },
       { name: "Support center", link: "/support-center" },
       { name: "Feedback", link: "/feedback" },
-      { name: "Contact us", link: "/contact-us" },
+      { name: "Contact us", link: "/contact" },
     ],
   },
   {

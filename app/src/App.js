@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Header from "./components/Header/Header";
 import MainRouter from "./components/Header/Navigation/MainRouter";
 import Footer from "./components/Footer/Footer";
+import { ScrollToTopOnRouteChange } from "./components/Pages/Tools/contentChange";
 
 // ---------------
 // Модальные окна
@@ -17,6 +18,7 @@ import getModalSetting from "./components/Header/Modals/Tools/ModalSetting";
 
 function App() {
   const modals = useSelector((state) => state.modals);
+  ScrollToTopOnRouteChange();
 
   return (
     <div className="App">

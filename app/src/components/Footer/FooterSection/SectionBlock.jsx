@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 /**
  * @param title - Заголовок блока String
  * @param links - массив ссылок [ { name, link }, { name, link } ]
- * @returns
  */
 export default function Block({ title, links }) {
   return (
