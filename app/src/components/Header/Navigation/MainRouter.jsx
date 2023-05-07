@@ -7,7 +7,10 @@ import Menu from '../../Pages/Menu/Menu';
 import About from '../../Pages/About/About';
 import Reservation from '../../Pages/Reservation/Reservation';
 
-export default function Page() {
+/**
+ * Основная маршрутизация по контенту сайта
+ */
+export default function MainRouter() {
   return (
     <Routes>
       <Route path="/home" element={<HomePage/>}/>

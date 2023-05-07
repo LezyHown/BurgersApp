@@ -8,7 +8,6 @@ export default function ScrollLock({ isActive }) {
   useLayoutEffect(() => {
     const handleScroll = (event) => {
       event.preventDefault();
-      window.scrollTo(0, 0);
     };
     if (isActive) {
       document.body.style.overflow = 'hidden';

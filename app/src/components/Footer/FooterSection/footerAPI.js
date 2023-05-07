@@ -1,4 +1,5 @@
-import IconsAPI from "../content/icons/iconsAPI";
+import IconsAPI from "../../content/icons/iconsAPI";
+import MailInput from "./MailInput";
 
 const footerBlocks = [
   {
@@ -33,10 +34,7 @@ const footerBlocks = [
     links: [
       { name: "Question or feedback?", link: "/question-or-feedback" },
       { name: "We’d love to hear from you", link: "/contact-form" },
-      <div className="mail-input">
-        <input placeholder="Email Address" type="email" />
-        <IconsAPI category={"FOOTER"} name={"mail"} />
-      </div>
+      <MailInput/>
     ],
   },
 ];
